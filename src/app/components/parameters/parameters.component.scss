@@ -1,0 +1,35 @@
+.form-container { 
+    margin: 1rem 5rem ;
+    padding: 2rem;
+    box-sizing: border-box;
+
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+   
+  
+    form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        gap: 1rem 1rem; // vertical 1rem, horizontal 0.75rem gap
+        flex-wrap: wrap;
+        
+        div:has(> button:first-child) {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: start;
+            gap: 1rem 1rem; // vertical 1rem, horizontal 0.75rem gap   
+            button { 
+                min-width: 120px;
+                
+            }
+
+              
+          }
+
+       
+    }
+  }
+  

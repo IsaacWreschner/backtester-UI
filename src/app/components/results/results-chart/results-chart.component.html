@@ -1,0 +1,9 @@
+<div class = "chart-container" *ngIf="chartData.length > 0">
+    <ngx-charts-line-chart
+      [results]="formattedChartData"
+      [xAxis]="true"
+      [yAxis]="true"
+      [autoScale]="true"
+      [timeline]="true">
+    </ngx-charts-line-chart>
+  </div>

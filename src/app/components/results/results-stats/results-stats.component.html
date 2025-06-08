@@ -1,0 +1,42 @@
+<div class="stats-section" *ngIf="builtInStats">
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of builtInStatsEntries">
+        <td>{{ item.name }}</td>
+        <td [ngClass]="getGainLossClass(item.value)">
+          {{ item.value }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="stats-section" *ngIf="additionalStats.length > 0">
+  <h2>Additional Stats</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+        <th>Description</th>
+        <th>Unit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stat of additionalStats">
+        <td>{{ stat.name }}</td>
+        <td [ngClass]="getGainLossClass(stat.value)">
+          {{ stat.value }}
+        </td>
+        <td>{{ stat.description }}</td>
+        <td>{{ stat.unit }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

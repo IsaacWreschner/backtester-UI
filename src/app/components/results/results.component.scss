@@ -1,0 +1,34 @@
+
+
+div {
+    min-height: 300px;
+    margin-bottom: 50px;
+    margin: 1rem 5rem;
+    border-radius: 15px;
+    min-height: 80%;
+    &.centered {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+       
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    &.error {
+        color: #b00020;
+        background: #fff3f3;
+        border: 1px solid #b00020;
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      p {
+        font-weight: bold;
+        color: rgb(168, 168, 168);
+        font-size: 1.5rem; // You can increase this further if needed
+      }
+}
+

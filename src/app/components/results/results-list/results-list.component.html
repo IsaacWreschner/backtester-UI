@@ -1,0 +1,35 @@
+<div *ngIf="positions.length > 0" class="positions-table">
+  <div class="header-row">
+    <div>Order ID</div>
+    <div>Symbol</div>
+    <div>Type</div>
+    <div>Price</div>
+    <div>Close Price</div>
+    <div>Lots</div>
+    <div>Started At</div>
+    <div>Closed At</div>
+    <div>Profit</div> 
+  </div>
+
+
+  <cdk-virtual-scroll-viewport itemSize="40" class="scroll-viewport">
+    <div *cdkVirtualFor="let position of positions" class="data-row">
+      <div>{{ position.id }}</div>
+      <div>{{ position.symbol?.description || position.symbol }}</div>
+      <div>
+        <span [ngClass]="position.type">
+          <ng-container *ngIf="position.type === 'buy'">🔼</ng-container>
+          <ng-container *ngIf="position.type === 'sell'">🔽</ng-container>
+          {{ position.type | titlecase }}
+        </span>
+      </div>
+      <div>{{ position.price }}</div>
+      <div>{{ position.closePrice }}</div>
+      <div>{{ position.lots }}</div>
+      <div>{{ position.startedAt | date: 'short' }}</div>
+      <div>{{ position.closedAt | date: 'short' }}</div>
+      <div [ngClass]="getProfitClass(position)">
+        {{ position.profit | number: '1.2-2' }}
+      </div>
+    </div>
+  </cdk-virtual-scroll-viewport>

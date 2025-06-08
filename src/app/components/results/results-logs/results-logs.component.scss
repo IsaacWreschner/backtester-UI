@@ -1,0 +1,23 @@
+.log-viewport {
+    height: 400px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+  }
+  
+  .log-item {
+    display: flex;
+    gap: 16px;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    font-family: monospace;
+  }
+  
+  .log-level.info {
+    color: green;
+  }
+  .log-level.error {
+    color: red;
+  }
+  .log-level.warn {
+    color: orange;
+  }

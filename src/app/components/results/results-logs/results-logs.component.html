@@ -1,0 +1,9 @@
+<div>
+    <cdk-virtual-scroll-viewport itemSize="16" class="log-viewport">
+        <div *cdkVirtualFor="let log of logs" class="log-item">
+          <div class="log-date">{{ log.date }}</div>
+          <div class="log-level" [ngClass]="log.level">{{ log.level.toUpperCase() }}</div>
+          <div class="log-message">{{ log.message }}</div>
+        </div>
+      </cdk-virtual-scroll-viewport>
+</div>

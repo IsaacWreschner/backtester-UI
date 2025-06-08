@@ -1,0 +1,36 @@
+<h2>Custom Parameters</h2>
+<div class="form-container">
+  <form  (ngSubmit)="submit()" *ngIf="sandbox$ | async as sandbox">
+    <div *ngFor="let paramDef of sandbox.customParametersDefinitions; let i = index">
+      <div class="form-item">
+        <label>{{ paramDef.name }}:</label>
+        <ng-container [ngSwitch]="paramDef.type">
+
+          <!-- String Input -->
+          <input *ngSwitchCase="'string'" [(ngModel)]="parametersForm[paramDef.name]"
+                 name="{{ paramDef.name }}" type="text" />
+
+          <!-- Number Input -->
+          <input *ngSwitchCase="'number'" [(ngModel)]="parametersForm[paramDef.name]"
+                 name="{{ paramDef.name }}" type="number" />
+
+          <!-- Boolean Input -->
+          <input *ngSwitchCase="'boolean'" [(ngModel)]="parametersForm[paramDef.name]"
+                 name="{{ paramDef.name }}" type="checkbox" />
+
+          <!-- Native HTML Dropdown -->
+          <select *ngSwitchCase="'select'" [(ngModel)]="parametersForm[paramDef.name]"
+                  name="{{ paramDef.name }}">
+            <option *ngFor="let option of paramDef.options" [value]="option">{{ option }}</option>
+          </select>
+
+          <!-- Default Case -->
+          <span *ngSwitchDefault>Unknown type: {{ paramDef.type }}</span>
+
+        </ng-container>
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>

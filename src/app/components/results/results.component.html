@@ -1,0 +1,37 @@
+@if (state$ | async; as state) {
+  @if (state === 'RUNNING') {
+    <div class="centered">
+      <mat-spinner diameter="60"></mat-spinner>
+    </div>
+  } @else if (state === 'ERROR') {
+    @if (errorMsg$ | async; as errorMsg;) {
+      <div class="centered error">
+        <h2>Error</h2>
+        <pre>{{ errorMsg }}</pre>
+        <div class="error-html" [innerHTML]="errorHtml$ | async"></div>
+      </div>
+    }
+  } @else if (state === 'COMPLETED') {
+    <div class="results">
+      <mat-tab-group>
+        <mat-tab label="List">
+          <app-results-list></app-results-list>
+        </mat-tab>
+        <mat-tab label="Chart">
+          <app-results-chart></app-results-chart>
+        </mat-tab>
+        <mat-tab label="Stats">
+          <app-results-stats></app-results-stats>
+        </mat-tab>
+        <mat-tab label="Logs">
+          <app-results-logs></app-results-logs>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+   
+  } @else {
+    <div class="centered">
+      <p>Waiting to start the backtest...</p>
+    </div>
+  }
+}
