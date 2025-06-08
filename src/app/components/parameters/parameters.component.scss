@@ -12,7 +12,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: start;
-        gap: 1rem 1rem; // vertical 1rem, horizontal 0.75rem gap
+        gap: 1rem 1rem; 
         flex-wrap: wrap;
         
         div:has(> button:first-child) {
@@ -20,7 +20,7 @@
             flex-direction: row;
             align-items: center;
             justify-content: start;
-            gap: 1rem 1rem; // vertical 1rem, horizontal 0.75rem gap   
+            gap: 1rem 1rem;  
             button { 
                 min-width: 120px;
                 

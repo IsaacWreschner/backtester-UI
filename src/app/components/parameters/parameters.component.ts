@@ -31,8 +31,8 @@ import { SandboxService } from '../../sandbox.service';
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ParametersComponent {
-  parameters!: Parameters; // Store parameters
-  sandbox!: TestSandbox; // Store sandbox
+  parameters!: Parameters;
+  sandbox!: TestSandbox;
   symbols: any[] = [];
   timeframes: any[] = []; 
  
@@ -45,11 +45,11 @@ export class ParametersComponent {
 
   ngOnInit() {
     this.sandboxService.sandbox$.subscribe((sandbox: TestSandbox) => {
-      console.log(sandbox); // Log sandbox to the console
-      this.sandbox = sandbox; // Update sandbox from the store
-      this.symbols = sandbox?.supportedSymbols; // Update symbols from the store
-      this.timeframes = sandbox?.supportedTimeframes; // Update timeframes from the store
-      this.parameters = sandbox?.parameters; // Update parameters from the store
+      console.log(sandbox);
+      this.sandbox = sandbox;
+      this.symbols = sandbox?.supportedSymbols;
+      this.timeframes = sandbox?.supportedTimeframes;
+      this.parameters = sandbox?.parameters;
     });
   }
 

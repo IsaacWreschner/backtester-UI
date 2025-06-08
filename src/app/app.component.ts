@@ -22,15 +22,15 @@ import { ResultsComponent } from './components/results/results.component';
 export class AppComponent implements OnInit {
 
   constructor(
-    private route: ActivatedRoute,           // <-- Inject route
-    private sandboxService: SandboxService   // <-- Your service
+    private route: ActivatedRoute,           
+    private sandboxService: SandboxService  
   ) { }
 
   ngOnInit() {
     this.route.queryParamMap.subscribe(params => {
       const sandboxName = params.get('sandbox');
       if (sandboxName) {
-        this.sandboxService.initTestSandbox(sandboxName);  // or whatever your method is
+        this.sandboxService.initTestSandbox(sandboxName); 
       }
     });
   }
