@@ -53,15 +53,15 @@ export class ParametersComponent {
     });
   }
 
-  submitForm() { // Log parameters to the console
-    this.sandboxService.runTestSandbox(this.parameters); // Submit parameters to the API
+  submitForm() {
+    this.sandboxService.runTestSandbox(this.parameters);
   }
 
   openCustomParameters(): void {
     const dialogRef = this.dialog.open(CustomizedParametersComponent);
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
-        this.parameters.customParameters = result; // Update custom parameters in the store
+        this.parameters.customParameters = result; 
       }
     });
   }
