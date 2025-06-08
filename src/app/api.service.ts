@@ -16,7 +16,6 @@ export class ApiService {
     return this.http.get(`${this.apiUrl}/${sandboxName}/metadata`) as Observable<TestSandbox>;
   }
 
-  // Submit form data (example)
   runTest(sandboxName:string, parameters: Parameters): Observable<any> {
     return this.http.post(`${this.apiUrl}/${sandboxName}/run`, parameters);
   }
