@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { SandboxService } from './sandbox.service';
@@ -20,11 +20,8 @@ import { ResultsComponent } from './components/results/results.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppComponent implements OnInit {
-
-  constructor(
-    private route: ActivatedRoute,           
-    private sandboxService: SandboxService  
-  ) { }
+  route = inject(ActivatedRoute); // <-- Use inject to get the route
+  sandboxService = inject(SandboxService); // <-- Use inject to get the service
 
   ngOnInit() {
     this.route.queryParamMap.subscribe(params => {
